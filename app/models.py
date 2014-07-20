@@ -1,12 +1,10 @@
 from hashlib import md5
 from app import app, db
+from config import ROLE_USER, ROLE_ADMIN
 import flask_whooshalchemy as whooshalchemy
 
 
-ROLE_USER = 0
-ROLE_ADMIN = 1
-
-
+# association table
 followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
